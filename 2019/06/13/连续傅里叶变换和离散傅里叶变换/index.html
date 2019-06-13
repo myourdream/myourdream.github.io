@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="傅里叶变换,通信,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="原文：https://www.jianshu.com/p/c91b89234ff6 网上关于从连续傅里叶变换推导出离散傅里叶变换公式的资料好像比较少，博主查阅了不少资料，总结出了一个推导的思路，现在分享给大家。 先给出连续傅里叶变换的公式： 正变换:  image 傅里叶逆变换：  image 下面，再给出离散傅里叶变换的公式： 正变换:  image 逆变换  image 表面上看，两道公式比较">
+<meta name="keywords" content="傅里叶变换,通信">
+<meta property="og:type" content="article">
+<meta property="og:title" content="连续傅里叶变换和离散傅里叶变换">
+<meta property="og:url" content="http://myourdream.github.io/2019/06/13/连续傅里叶变换和离散傅里叶变换/index.html">
+<meta property="og:site_name" content="Seagull&#39; Blog">
+<meta property="og:description" content="原文：https://www.jianshu.com/p/c91b89234ff6 网上关于从连续傅里叶变换推导出离散傅里叶变换公式的资料好像比较少，博主查阅了不少资料，总结出了一个推导的思路，现在分享给大家。 先给出连续傅里叶变换的公式： 正变换:  image 傅里叶逆变换：  image 下面，再给出离散傅里叶变换的公式： 正变换:  image 逆变换  image 表面上看，两道公式比较">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6923/1D3F9EAB31D04C08ACC1432221BF437B">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6922/9FC0F8B321504BD190E0E45245D4CEB0">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6921/13B1978D820D4543A7B3AB46D4E22F1F">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6924/31E35B4843664DD9A16B57F02BBCE69A">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6925/6E47227F91B94F078B03784F99E0F544">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6926/4F9FD2BAAEDA41C29AC917EEAC77BBD6">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6928/FA365852AF0A40E3A3A80116956F4AC5">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6927/A2B0806A73AB4BE6AC4443686D6AAD22">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6929/B018D3F9D11F4EE68602BFDAAF45FBF9">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6930/3318558D79EC41E984CF499A4F7CB7FB">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6931/EF87E379A9534EFBB121B024B523FFA0">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6933/BA7054B208B048B9ADC69B33EE9BA494">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6932/0E2B923517054D1B9810218EC3BCBF8D">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6934/597748ECEFAA44A58D8B74EE85F21E0E">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6935/90DF6553489F4DB39FDD1F2857B79114">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6936/F8B24CD9168F400C960C7E1671650337">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6937/BA8BF919810C41F78DAC020942D15815">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6938/4A066F75A4734DC7BD8FA27A6433DDBE">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6941/3C9FDFF0FB1E4B33811AD22B93EE64E2">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6939/F23C4C5A9CD84B8BA503E9D581A5D31E">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6940/DDE792B8385648E2863AA243CFBF576A">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6942/8D76790ABDBE43C18073E7789A95B60C">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6943/E22495D7A80741779CF7A50C971B970E">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6944/7DE22CC7409842A299ED767132B2FCAB">
+<meta property="og:image" content="http://note.youdao.com/yws/res/6945/7002B0416D604158AF66BD665C6BEDB0">
+<meta property="og:updated_time" content="2019-06-13T15:51:43.025Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="连续傅里叶变换和离散傅里叶变换">
+<meta name="twitter:description" content="原文：https://www.jianshu.com/p/c91b89234ff6 网上关于从连续傅里叶变换推导出离散傅里叶变换公式的资料好像比较少，博主查阅了不少资料，总结出了一个推导的思路，现在分享给大家。 先给出连续傅里叶变换的公式： 正变换:  image 傅里叶逆变换：  image 下面，再给出离散傅里叶变换的公式： 正变换:  image 逆变换  image 表面上看，两道公式比较">
+<meta name="twitter:image" content="http://note.youdao.com/yws/res/6923/1D3F9EAB31D04C08ACC1432221BF437B">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://myourdream.github.io/2019/06/13/连续傅里叶变换和离散傅里叶变换/">
+
+
+
+
+
+  <title>连续傅里叶变换和离散傅里叶变换 | Seagull' Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://github.com/myourdream/myourdream.github.io" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Seagull' Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-5g-wiki">
+          <a href="/5gwiki/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            5G wiki
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-ai-wiki">
+          <a href="/aiwiki/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            AI wiki
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://myourdream.github.io/2019/06/13/连续傅里叶变换和离散傅里叶变换/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content>
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Seagull' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">连续傅里叶变换和离散傅里叶变换</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-13T23:47:34+08:00">
+                2019-06-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/06/13/连续傅里叶变换和离散傅里叶变换/" class="leancloud_visitors" data-flag-title="连续傅里叶变换和离散傅里叶变换">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+				 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>原文：<a href="https://www.jianshu.com/p/c91b89234ff6" target="_blank" rel="noopener">https://www.jianshu.com/p/c91b89234ff6</a></p>
+<p>网上关于从连续傅里叶变换推导出离散傅里叶变换公式的资料好像比较少，博主查阅了不少资料，总结出了一个推导的思路，现在分享给大家。</p>
+<p>先给出连续傅里叶变换的公式：</p>
+<p><strong>正变换:</strong></p>
+<p><img src="http://note.youdao.com/yws/res/6923/1D3F9EAB31D04C08ACC1432221BF437B" alt="img"></p>
+<p>image</p>
+<p><strong>傅里叶逆变换：</strong></p>
+<p><img src="http://note.youdao.com/yws/res/6922/9FC0F8B321504BD190E0E45245D4CEB0" alt="img"></p>
+<p>image</p>
+<p>下面，再给出离散傅里叶变换的公式：</p>
+<p><strong>正变换:</strong></p>
+<p><img src="http://note.youdao.com/yws/res/6921/13B1978D820D4543A7B3AB46D4E22F1F" alt="img"></p>
+<p>image</p>
+<p><strong>逆变换</strong></p>
+<p><img src="http://note.youdao.com/yws/res/6924/31E35B4843664DD9A16B57F02BBCE69A" alt="img"></p>
+<p>image</p>
+<p>表面上看，两道公式比较难联系起来，因为连续变换公式的积分限和离散公式的求和范围就有着较大的差异，再者，连续逆变换公式和离散逆变换公式前面的系数也有较大的差别。下面将通过公式推导将这两种变换联系起来。</p>
+<p>如果某函数f(t)在无穷区间上连续的，又满足f(t+2Pi)=f(t)，那么f(t)的傅里叶变换可以写成</p>
+<p><img src="http://note.youdao.com/yws/res/6925/6E47227F91B94F078B03784F99E0F544" alt="img"></p>
+<p>image</p>
+<p>那么上式也可以推出下面这个式子：</p>
+<p><img src="http://note.youdao.com/yws/res/6926/4F9FD2BAAEDA41C29AC917EEAC77BBD6" alt="img"></p>
+<p>image</p>
+<p>这两个式子其实是等价的。下面简单正面一下这两道公式为什么等价。</p>
+<p>证明，假设有</p>
+<p><img src="http://note.youdao.com/yws/res/6928/FA365852AF0A40E3A3A80116956F4AC5" alt="img"></p>
+<p>image</p>
+<p>那么就有</p>
+<p><img src="http://note.youdao.com/yws/res/6927/A2B0806A73AB4BE6AC4443686D6AAD22" alt="img"></p>
+<p>image</p>
+<p>令</p>
+<p><img src="http://note.youdao.com/yws/res/6929/B018D3F9D11F4EE68602BFDAAF45FBF9" alt="img"></p>
+<p>image</p>
+<p>就有</p>
+<p><img src="http://note.youdao.com/yws/res/6930/3318558D79EC41E984CF499A4F7CB7FB" alt="img"></p>
+<p>image</p>
+<p>上面公式当且仅当ω大于等于0，且ω为整数时成立。</p>
+<p>联想一下，离散傅里叶公式的ω就是离散的，它的取值就是整数，这种关系是不是很微妙？</p>
+<p>现在开始推导公式</p>
+<p>我们考虑积分</p>
+<p>image</p>
+<p>以步长h=2Pi/N近似积分它，我们利用梯形积分法来近似代替，即有</p>
+<p><img src="http://note.youdao.com/yws/res/6931/EF87E379A9534EFBB121B024B523FFA0" alt="img"></p>
+<p>image</p>
+<p>其中，</p>
+<p><img src="http://note.youdao.com/yws/res/6933/BA7054B208B048B9ADC69B33EE9BA494" alt="img"></p>
+<p>image</p>
+<p><img src="http://note.youdao.com/yws/res/6932/0E2B923517054D1B9810218EC3BCBF8D" alt="img"></p>
+<p>image</p>
+<p>所以有</p>
+<p><img src="http://note.youdao.com/yws/res/6934/597748ECEFAA44A58D8B74EE85F21E0E" alt="img"></p>
+<p>image</p>
+<p>还记得傅里叶级数公式吗？傅里叶级数公式就是</p>
+<p><img src="http://note.youdao.com/yws/res/6935/90DF6553489F4DB39FDD1F2857B79114" alt="img"></p>
+<p>image</p>
+<p>其中，</p>
+<p><img src="http://note.youdao.com/yws/res/6936/F8B24CD9168F400C960C7E1671650337" alt="img"></p>
+<p>image</p>
+<p>对于上面讨论的f(x)来说，假设其定义在 (0,2Pi)</p>
+<p>因此，</p>
+<p><img src="http://note.youdao.com/yws/res/6937/BA8BF919810C41F78DAC020942D15815" alt="img"></p>
+<p>image</p>
+<p>利用上面讨论出的近似代替的原理，就有</p>
+<p><img src="http://note.youdao.com/yws/res/6938/4A066F75A4734DC7BD8FA27A6433DDBE" alt="img"></p>
+<p>image</p>
+<p>式中j虚数单位，因为频率ω也是离散的，所以这里用k代替了频率ω.</p>
+<p>上式还可以简化一点，写成如下的形式</p>
+<p><img src="http://note.youdao.com/yws/res/6941/3C9FDFF0FB1E4B33811AD22B93EE64E2" alt="img"></p>
+<p>image</p>
+<p>其中</p>
+<p><img src="http://note.youdao.com/yws/res/6939/F23C4C5A9CD84B8BA503E9D581A5D31E" alt="img"></p>
+<p>image</p>
+<p>这里，令</p>
+<p><img src="http://note.youdao.com/yws/res/6940/DDE792B8385648E2863AA243CFBF576A" alt="img"></p>
+<p>image</p>
+<p>这就是离散傅里叶变换的公式了。那么离散傅里叶逆变换的公式又是怎样呢，我们可以根据连续傅里叶逆变换的公式来写出。</p>
+<p>首先给出连续傅里叶逆变换的公式：</p>
+<p><img src="http://note.youdao.com/yws/res/6942/8D76790ABDBE43C18073E7789A95B60C" alt="img"></p>
+<p>image</p>
+<p>类似地，根据梯形积分近似代替的原理，容易写出离散傅里叶逆变换的公式，有</p>
+<p><img src="http://note.youdao.com/yws/res/6943/E22495D7A80741779CF7A50C971B970E" alt="img"></p>
+<p>image</p>
+<p>这里，将推导出来的正逆变换公式写在下面，有</p>
+<p><img src="http://note.youdao.com/yws/res/6944/7DE22CC7409842A299ED767132B2FCAB" alt="img"></p>
+<p>image</p>
+<p>而本文开头给出的公式是</p>
+<p><img src="http://note.youdao.com/yws/res/6945/7002B0416D604158AF66BD665C6BEDB0" alt="img"></p>
+<p>image</p>
+<p>对比一下可以发现一些微小的差异，一个就是1/N的位置的差异（其实1/N的位置放在正变换还是逆变换都是可以的）。为什么会出现这种差异呢？</p>
+<p>主要原因是我是用</p>
+<p>来开始推导正变换公式的,如果我用</p>
+<p>推导的话，那么可以很容易想到1/N将不会出现在正变换公式里。</p>
+<p>以上推导讲完了，那么究竟离散傅里叶变换和连续傅里叶变换有什么关系呢？离散傅里叶变换的时间和频率都是离散的，而连续傅里叶变换的时间和频率都是连续的，怎样将这种关系对应起来呢？这里我谈谈个人的理解。我们知道离散傅里叶变换的存在是为了使得傅里叶变换能够在计算机中进行运算处理，而计算机是没办法处理连续信号的，所以唯有将连续信号进行离散化。如何离散化呢？根据上面的公式推导，我们可以理解：假设有某个定义在（0,2π）的连续信号f（t），对其进行采样，采样点数为N，利用梯形求积公式便可得到离散傅里叶正变换公式了。</p>
+<p>反正这个离散点数为N的信号序列，它得对应定义在（0,2Pi）的假想的信号f(t)。这样对应起来，这个离散傅里叶变换的公式就好推出来了。至于逆变换的公式的推导，则可以函数展成复指数形式的傅里叶级数的公式推得。这里就不展开了。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/傅里叶变换/" rel="tag"><i class="fa fa-tag"></i> 傅里叶变换</a>
+          
+            <a href="/tags/通信/" rel="tag"><i class="fa fa-tag"></i> 通信</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/13/深入浅出的讲解傅里叶变换（真正的通俗易懂）/" rel="next" title="深入浅出的讲解傅里叶变换（真正的通俗易懂）">
+                <i class="fa fa-chevron-left"></i> 深入浅出的讲解傅里叶变换（真正的通俗易懂）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt>
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/myourdream/myourdream.github.io" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:yourname@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/yourname" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/yourname" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mybookmark.cn/#/bookmarks" title="网络书签" target="_blank">网络书签</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://note.youdao.com/web/#/file/recent" title="有道云笔记" target="_blank">有道云笔记</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://pan.baidu.com/disk/home" title="百度云盘" target="_blank">百度云盘</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/myourdream2" title="CSDN博客" target="_blank">CSDN博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/myourdream/" title="博客园" target="_blank">博客园</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("S6gJowjn44QcMyOc99n6lo2g-gzGzoHsz", "Ur3RRX915yjUmFih0cwdvQEM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

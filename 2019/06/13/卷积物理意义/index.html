@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="通信,卷积,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="卷积计算公式  （参考：https://wenku.baidu.com/view/ff8d10b2ac51f01dc281e53a580216fc710a5307.html） 提示：对卷积的理解分为三部分讲解1）信号的角度2）数学家的理解（外行）3）与多项式的关系 1 来源卷积其实就是为冲击函数诞生的。“冲击函数”是狄拉克为了解决一些瞬间作用的物理现象而提出的符号。古人曰：“说一堆大道理不如举一个">
+<meta name="keywords" content="通信,卷积">
+<meta property="og:type" content="article">
+<meta property="og:title" content="卷积物理意义">
+<meta property="og:url" content="http://myourdream.github.io/2019/06/13/卷积物理意义/index.html">
+<meta property="og:site_name" content="Seagull&#39; Blog">
+<meta property="og:description" content="卷积计算公式  （参考：https://wenku.baidu.com/view/ff8d10b2ac51f01dc281e53a580216fc710a5307.html） 提示：对卷积的理解分为三部分讲解1）信号的角度2）数学家的理解（外行）3）与多项式的关系 1 来源卷积其实就是为冲击函数诞生的。“冲击函数”是狄拉克为了解决一些瞬间作用的物理现象而提出的符号。古人曰：“说一堆大道理不如举一个">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://myourdream.github.io/2019/06/13/卷积物理意义/1560440389302.png">
+<meta property="og:image" content="http://myourdream.github.io/2019/06/13/卷积物理意义/1560440410964.png">
+<meta property="og:updated_time" content="2019-06-13T15:43:16.038Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="卷积物理意义">
+<meta name="twitter:description" content="卷积计算公式  （参考：https://wenku.baidu.com/view/ff8d10b2ac51f01dc281e53a580216fc710a5307.html） 提示：对卷积的理解分为三部分讲解1）信号的角度2）数学家的理解（外行）3）与多项式的关系 1 来源卷积其实就是为冲击函数诞生的。“冲击函数”是狄拉克为了解决一些瞬间作用的物理现象而提出的符号。古人曰：“说一堆大道理不如举一个">
+<meta name="twitter:image" content="http://myourdream.github.io/2019/06/13/卷积物理意义/1560440389302.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://myourdream.github.io/2019/06/13/卷积物理意义/">
+
+
+
+
+
+  <title>卷积物理意义 | Seagull' Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://github.com/myourdream/myourdream.github.io" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Seagull' Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-5g-wiki">
+          <a href="/5gwiki/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            5G wiki
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-ai-wiki">
+          <a href="/aiwiki/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            AI wiki
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://myourdream.github.io/2019/06/13/卷积物理意义/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content>
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Seagull' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">卷积物理意义</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-13T23:37:39+08:00">
+                2019-06-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/06/13/卷积物理意义/" class="leancloud_visitors" data-flag-title="卷积物理意义">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+				 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="卷积计算公式"><a href="#卷积计算公式" class="headerlink" title="卷积计算公式"></a>卷积计算公式</h2><p><img src="/2019/06/13/卷积物理意义/1560440389302.png" alt="1560440389302"></p>
+<p><img src="/2019/06/13/卷积物理意义/1560440410964.png" alt="1560440410964"></p>
+<p>（参考：<a href="https://wenku.baidu.com/view/ff8d10b2ac51f01dc281e53a580216fc710a5307.html" target="_blank" rel="noopener">https://wenku.baidu.com/view/ff8d10b2ac51f01dc281e53a580216fc710a5307.html</a>）</p>
+<p>提示：对卷积的理解分为三部分讲解1）信号的角度2）数学家的理解（外行）3）与多项式的关系</p>
+<h2 id="1-来源"><a href="#1-来源" class="headerlink" title="1 来源"></a>1 来源</h2><p>卷积其实就是为冲击函数诞生的。“冲击函数”是狄拉克为了解决一些瞬间作用的物理现象而提出的符号。古人曰：“说一堆大道理不如举一个好例子”，冲量这一物理现象很能说明“冲击函数”。在t时间内对一物体作用F的力，倘若作用时间t很小，作用力F很大，但让Ft的乘积不变，即冲量不变。于是在用t做横坐标、F做纵坐标的坐标系中，就如同一个面积不变的长方形，底边被挤的窄窄的，高度被挤的高高的，在数学中它可以被挤到无限高，但即使它无限瘦、无限高、但它仍然保持面积不变（它没有被挤没！），为了证实它的存在，可以对它进行积分，积分就是求面积嘛！于是“卷积”这个数学怪物就这样诞生了。</p>
+<p>卷积是“信号与系统”中论述系统对输入信号的响应而提出的。</p>
+<h2 id="2-意义"><a href="#2-意义" class="headerlink" title="2 意义"></a>2 意义</h2><p>信号处理是将一个信号空间映射到另外一个信号空间，通常就是时域到频域，（还有z域，s域），信号的能量就是函数的范数（信号与函数等同的概念），大家都知道有个Paserval定理就是说映射前后范数不变，在数学中就叫保范映射，实际上信号处理中的变换基本都是保范映射，只要Paserval定理成立就是保范映射（就是能量不变的映射）。</p>
+<p>信号处理中如何出现卷积的。假设B是一个系统，其t时刻的输入为x(t)，输出为y(t)，系统的响应函数为h(t)，按理说，输出与输入的关系应该为</p>
+<p>Y(t)=h(t)x(t)，</p>
+<p>然而，实际的情况是，系统的输出不仅与系统在t时刻的响应有关，还与它在t时刻之前的响应有关，不过系统有个衰减过程，所以t1（&lt;t）时刻的输入对输出的影响通常可以表示为x(t)h(t-t1)，这个过程可能是离散的，也可能是连续的，所以t时刻的输出应该为t时刻之前系统响应函数在各个时刻响应的叠加，这就是卷积，用数学公式表示就是</p>
+<p>y(s)=∫x(t)h(s-t)dt，</p>
+<p>离散情况下就是级数了。</p>
+<h2 id="3-计算"><a href="#3-计算" class="headerlink" title="3 计算"></a>3 计算</h2><p>卷积是一种积分运算，它可以用来描述线性时不变系统的输入和输出的关系：即输出可以通过输入和一个表征系统特性的函数（冲激响应函数）进行卷积运算得到。（以下用$符号表示从负无穷大到正无穷大的积分）</p>
+<p>1）一维卷积：</p>
+<p>y(t)=g(k)*x(k)=$g(k)x(t-k)</p>
+<p>先把函数x(k)相对于原点反折，然后向右移动距离t，然后两个函数相乘再积分，就得到了在t处的输出。对每个t值重复上述过程，就得到了输出曲线。   </p>
+<p>2）二维卷积：</p>
+<p>h(x,y)=f(u,v)*g(u,v)=$$f(u,v)g(x-u,y-v)</p>
+<p>先将g(u,v)绕其原点旋转180度，然后平移其原点，u轴上像上平移x，   v轴上像上平移y。然后两个函数相乘积分，得到一个点处的输出。</p>
+<h2 id="4-幽默笑话——谈卷积的物理意义"><a href="#4-幽默笑话——谈卷积的物理意义" class="headerlink" title="4 幽默笑话——谈卷积的物理意义"></a>4 幽默笑话——谈卷积的物理意义</h2><p>有一个七品县令，喜欢用打板子来惩戒那些市井无赖，而且有个惯例：如果没犯大罪，只打一板，释放回家，以示爱民如子。</p>
+<p>有一个无赖，想出人头地却没啥指望，心想：既然扬不了善名，出恶名也成啊。怎么出恶名？炒作呗！怎么炒作？找名人呀！他自然想到了他的行政长官——县令。</p>
+<p>无赖于是光天化日之下，站在县衙门前撒了一泡尿，后果是可想而知地，自然被请进大堂挨了一板子，然后昂首挺胸回家，躺了一天，嘿！身上啥事也没有！第二天如法炮制，全然不顾行政长管的仁慈和衙门的体面，第三天、第四天……每天去县衙门领一个板子回来，还喜气洋洋地，坚持一个月之久！这无赖的名气已经和衙门口的臭气一样，传遍八方了！</p>
+<p>县令大人噤着鼻子，呆呆地盯着案子上的惊堂木，拧着眉头思考一个问题：这三十个大板子怎么不好使捏？……想当初，本老爷金榜题名时，数学可是得了满分，今天好歹要解决这个问题：</p>
+<p> ——人（系统！）挨板子（脉冲！）以后，会有什么表现（输出！）？</p>
+<p> ——费话，疼呗！</p>
+<p>——我问的是：会有什么表现？</p>
+<p> ——看疼到啥程度。像这无赖的体格，每天挨一个板子啥事都不会有，连哼一下都不可能，你也看到他那得意洋洋的嘴脸了（输出0）；如果一次连揍他十个板子，他可能会皱皱眉头，咬咬牙，硬挺着不哼（输出1）；揍到二十个板子，他会疼得脸部扭曲，象猪似地哼哼（输出3）；揍到三十个板子，他可能会象驴似地嚎叫，一把鼻涕一把泪地求你饶他一命（输出5）；揍到四十个板子，他会大小便失禁，勉强哼出声来（输出1）；揍到五十个板子，他连哼一下都不可能（输出0）——死啦！</p>
+<p>县令铺开坐标纸，以打板子的个数作为X轴，以哼哼的程度（输出）为Y轴，绘制了一条曲线：</p>
+<p> ——呜呼呀！这曲线像一座高山，弄不懂。为啥那个无赖连挨了三十天大板却不喊绕命呀？</p>
+<p> —— 呵呵，你打一次的时间间隔（Δτ=24小时）太长了，所以那个无赖承受的痛苦程度一天一利索，没有叠加，始终是一个常数；如果缩短打板子的时间间隔（建议Δτ=0.5秒），那他的痛苦程度可就迅速叠加了；等到这无赖挨三十个大板（t=30）时，痛苦程度达到了他能喊叫的极限，会收到最好的惩戒效果，再多打就显示不出您的仁慈了。</p>
+<p>——还是不太明白，时间间隔小，为什么痛苦程度会叠加呢？</p>
+<p>——这与人（线性时不变系统）对板子（脉冲、输入、激励）的响应有关。什么是响应？人挨一个板子后，疼痛的感觉会在一天（假设的，因人而异）内慢慢消失（衰减），而不可能突然消失。这样一来，只要打板子的时间间隔很小，每一个板子引起的疼痛都来不及完全衰减，都会对最终的痛苦程度有不同的贡献：</p>
+<p>t个大板子造成的痛苦程度=Σ(第τ个大板子引起的痛苦*衰减系数)</p>
+<p>[衰减系数是（t-τ）的函数，仔细品味]</p>
+<p> 数学表达为：y(t)=∫T(τ)H(t-τ)</p>
+<p>——拿人的痛苦来说卷积的事，太残忍了。除了人以外，其他事物也符合这条规律吗？</p>
+<p> ——呵呵，县令大人毕竟仁慈。其实除人之外，很多事情也遵循此道。好好想一想，铁丝为什么弯曲一次不折，快速弯曲多次却会轻易折掉呢？</p>
+<p> ——恩，一时还弄不清，容本官慢慢想来——但有一点是明确地——来人啊，将撒尿的那个无赖抓来，狠打40大板！</p>
+<p>也可以这样理解：T(τ)即第τ个板子，H(t-τ)就是第τ个板子引起的痛苦到t时刻的痛苦程度，所有板子加起来就是∫T(τ)H(t-τ)</p>
+<h2 id="5-卷积在具体学科中的应用"><a href="#5-卷积在具体学科中的应用" class="headerlink" title="5 卷积在具体学科中的应用"></a>5 卷积在具体学科中的应用</h2><p>图像处理：用一个模板和一幅图像进行卷积，对于图像上的一个点，让模板的原点和该点重合，然后模板上的点和图像上对应的点相乘，然后各点的积相加，就得到了该点的卷积值。对图像上的每个点都这样处理。由于大多数模板都是对称的，所以模板不旋转。卷积是一种积分运算，用来求两个曲线重叠区域面积。可以看作加权求和，可以用来消除噪声、特征增强。</p>
+<p>把一个点的像素值用它周围的点的像素值的加权平均代替。</p>
+<p>卷积是一种线性运算,图像处理中常见的mask运算都是卷积，广泛应用于图像滤波。</p>
+<p>卷积在数据处理中用来平滑，卷积有平滑效应和展宽效应.</p>
+<p>电路学：卷积法的原理是根据线性定常电路的性质(齐次性、叠加性、时不变性、积分性等),借助电路的单位冲激响应h(t),求解系统响应的工具，系统的激励一般都可以表示为冲击函数和激励的函数的卷积，而卷积为高等数学中的积分概念。概念中冲击函数的幅度是由每个矩形微元的面积决定的。</p>
+<p>卷积关系最重要的一种情况，就是在信号与线性系统或数字信号处理中的卷积定理。利用该定理，可以将时间域或空间域中的卷积运算等价为频率域的相乘运算，从而利用FFT等快速算法，实现有效的计算，节省运算代价。</p>
+<p>信号处理：</p>
+<p>1）卷积实质上是对信号进行滤波；</p>
+<p>2）卷积就是用冲击函数表示激励函数，然后根据冲击响应求解系统的零状态响应。</p>
+<p>卷积是求和（积分）。对于线性时不变的系统，输入可以分解成很多强度不同的冲激的和的形式（对于时域就是积分），那么输出也就是这些冲激分别作用到系统产生的响应的和（或者积分）。所以卷积的物理意义就是表达了时域中输入，系统冲激响应，以及输出之间的关系。</p>
+<p>信号角度：卷积代表了线性系统对输入信号的响应方式,其输出就等于系统冲击函数和信号输入的卷积,只有符合叠加原理的系统,才有系统冲击函数的概念,从而卷积成为系统对输入在数学上运算的必然形式,冲击函数实际上是该问题的格林函数解。点激励源作为强加激励,求解某个线性问题的解,得到的格林函数即是系统冲击响应.所以在线性系统中,系统冲击响应与卷积存在着必然的联系。</p>
+<p>数学：来说卷积就是定义两个函数的一种乘法，或者是一种反映两个序列或函数之间的运算方法。对离散序列来说就是两个多项式的乘法。物理意义就是冲激响应的线性叠加，所谓冲激响应可以看作是一个函数，另一个函数按冲激信号正交展开。</p>
+<p>在现实中：卷积代表的是将一种信号搬移到另一频率中，比如调制，这是频率卷。</p>
+<p>物理：卷积可代表某种系统对某个物理量或输入的调制或污染。</p>
+<p>在现实中：卷积代表的是将一种信号搬移到另一频率中，比如调制，这是频率卷。</p>
+<p>形象比喻：卷积我觉得就象一把锉刀，它主要是把一些非光滑的函数或算子光滑化。</p>
+<p>信号处理的任务就是寻找和信号集合对应的一个集合，然后在另外一个集合中分析信号，Fourier变换就是一种，它建立了时域中每个信号函数与频域中的每个频谱函数的一一对应关系，这是元素之间的对应。那么运算之间的对应呢，在时域的加法对应频域中的加法，这就是FT线性性的体现；那么时域的乘法对应什么呢，最后得到的那个表达式我们就把它叫卷积，就是对应的频域的卷积。</p>
+<h2 id="简单来说，卷积是一种重叠关系，也就是说，所得到的结果反映了两个卷积函数的重叠部分。所以，用一个已知频段的函数卷积另一个频段很宽的函数，也就是对后者进行了滤波，后者跟前者重叠的频段才能很好地通过这个filter"><a href="#简单来说，卷积是一种重叠关系，也就是说，所得到的结果反映了两个卷积函数的重叠部分。所以，用一个已知频段的函数卷积另一个频段很宽的函数，也就是对后者进行了滤波，后者跟前者重叠的频段才能很好地通过这个filter" class="headerlink" title="简单来说，卷积是一种重叠关系，也就是说，所得到的结果反映了两个卷积函数的重叠部分。所以，用一个已知频段的函数卷积另一个频段很宽的函数，也就是对后者进行了滤波，后者跟前者重叠的频段才能很好地通过这个filter."></a>简单来说，卷积是一种重叠关系，也就是说，所得到的结果反映了两个卷积函数的重叠部分。所以，用一个已知频段的函数卷积另一个频段很宽的函数，也就是对后者进行了滤波，后者跟前者重叠的频段才能很好地通过这个filter.</h2><p>作者：曼陀罗彼岸花<br>来源：CSDN<br>原文：<a href="https://blog.csdn.net/tiandijun/article/details/40080823" target="_blank" rel="noopener">https://blog.csdn.net/tiandijun/article/details/40080823</a><br>版权声明：本文为博主原创文章，转载请附上博文链接！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/通信/" rel="tag"><i class="fa fa-tag"></i> 通信</a>
+          
+            <a href="/tags/卷积/" rel="tag"><i class="fa fa-tag"></i> 卷积</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/31/win10 GTX1060显卡 xgboost gpu 安装/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/13/深入浅出的讲解傅里叶变换（真正的通俗易懂）/" rel="prev" title="深入浅出的讲解傅里叶变换（真正的通俗易懂）">
+                深入浅出的讲解傅里叶变换（真正的通俗易懂） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt>
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/myourdream/myourdream.github.io" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:yourname@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/yourname" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/yourname" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mybookmark.cn/#/bookmarks" title="网络书签" target="_blank">网络书签</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://note.youdao.com/web/#/file/recent" title="有道云笔记" target="_blank">有道云笔记</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://pan.baidu.com/disk/home" title="百度云盘" target="_blank">百度云盘</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/myourdream2" title="CSDN博客" target="_blank">CSDN博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/myourdream/" title="博客园" target="_blank">博客园</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#卷积计算公式"><span class="nav-text">卷积计算公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-来源"><span class="nav-text">1 来源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-意义"><span class="nav-text">2 意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-计算"><span class="nav-text">3 计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-幽默笑话——谈卷积的物理意义"><span class="nav-text">4 幽默笑话——谈卷积的物理意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-卷积在具体学科中的应用"><span class="nav-text">5 卷积在具体学科中的应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单来说，卷积是一种重叠关系，也就是说，所得到的结果反映了两个卷积函数的重叠部分。所以，用一个已知频段的函数卷积另一个频段很宽的函数，也就是对后者进行了滤波，后者跟前者重叠的频段才能很好地通过这个filter"><span class="nav-text">简单来说，卷积是一种重叠关系，也就是说，所得到的结果反映了两个卷积函数的重叠部分。所以，用一个已知频段的函数卷积另一个频段很宽的函数，也就是对后者进行了滤波，后者跟前者重叠的频段才能很好地通过这个filter.</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("S6gJowjn44QcMyOc99n6lo2g-gzGzoHsz", "Ur3RRX915yjUmFih0cwdvQEM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
