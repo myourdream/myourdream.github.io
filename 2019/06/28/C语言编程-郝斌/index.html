@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="C,编程,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="《高质量C/C++编程》-林锐">
+<meta name="keywords" content="C,编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言编程-郝斌">
+<meta property="og:url" content="http://myourdream.github.io/2019/06/28/C语言编程-郝斌/index.html">
+<meta property="og:site_name" content="Seagull&#39; Blog">
+<meta property="og:description" content="《高质量C/C++编程》-林锐">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://myourdream.github.io/2019/06/28/C语言编程-郝斌/Untitled/1561726782097.png">
+<meta property="og:image" content="http://myourdream.github.io/2019/06/28/C语言编程-郝斌/1561785248654.png">
+<meta property="og:image" content="http://myourdream.github.io/2019/06/28/C语言编程-郝斌/1561817260113.png">
+<meta property="og:image" content="http://myourdream.github.io/2019/06/28/C语言编程-郝斌/1561864185377.png">
+<meta property="og:image" content="http://myourdream.github.io/2019/06/28/C语言编程-郝斌/1561879150195.png">
+<meta property="og:image" content="http://myourdream.github.io/2019/06/28/C语言编程-郝斌/1561879360576.png">
+<meta property="og:image" content="http://myourdream.github.io/2019/06/28/C语言编程-郝斌/1561880940951.png">
+<meta property="og:image" content="http://myourdream.github.io/2019/06/28/C语言编程-郝斌/1561886200772.png">
+<meta property="og:image" content="http://myourdream.github.io/2019/06/28/C语言编程-郝斌/1561887905920.png">
+<meta property="og:updated_time" content="2019-07-02T15:38:18.612Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C语言编程-郝斌">
+<meta name="twitter:description" content="《高质量C/C++编程》-林锐">
+<meta name="twitter:image" content="http://myourdream.github.io/2019/06/28/C语言编程-郝斌/Untitled/1561726782097.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://myourdream.github.io/2019/06/28/C语言编程-郝斌/">
+
+
+
+
+
+  <title>C语言编程-郝斌 | Seagull' Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://github.com/myourdream/myourdream.github.io" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Seagull' Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-5g-wiki">
+          <a href="/5gwiki/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            5G wiki
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-ai-wiki">
+          <a href="/aiwiki/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            AI wiki
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://myourdream.github.io/2019/06/28/C语言编程-郝斌/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content>
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Seagull' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C语言编程-郝斌</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-28T20:59:13+08:00">
+                2019-06-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/06/28/C语言编程-郝斌/" class="leancloud_visitors" data-flag-title="C语言编程-郝斌">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+				 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/2019/06/28/C语言编程-郝斌/Untitled/1561726782097.png" alt="1561726782097"></p>
+<p>《高质量C/C++编程》-林锐</p>
+<a id="more"></a>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><p>变量的本质：是内存中的一段存储空间；</p>
+<p>变量的初始化：是赋值的意思；</p>
+<p>整数是以补码的形式转化为二进制代码存储在计算机中的；</p>
+<p>实数是以IEEE754标准转化为二进制代码存储在计算机中的；</p>
+<p>字符的本质实际上也是与整数的存储方式相同；</p>
+<h3 id="代码：解二元一次方程组"><a href="#代码：解二元一次方程组" class="headerlink" title="代码：解二元一次方程组"></a>代码：解二元一次方程组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;math.h&gt;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">	//把三个系数保存到计算机中</span><br><span class="line">	int a = 1;</span><br><span class="line">	int b = 4;</span><br><span class="line">	int c = 4;</span><br><span class="line">	double delta; //delta存放的是b*b - 4*a*c</span><br><span class="line">	double x1; //存放一元二次方程的其中一个解</span><br><span class="line">	double x2; //存放一元二次方程的其中一个解</span><br><span class="line">	delta = b*b - 4 * a*c;</span><br><span class="line"></span><br><span class="line">	if (delta &gt; 0)</span><br><span class="line">	&#123;</span><br><span class="line">		//两个解</span><br><span class="line">		x1 = (-b + sqrt(delta)) / (2 * a);</span><br><span class="line">		x2 = (-b - sqrt(delta)) / (2 * a);</span><br><span class="line">		printf(&quot;该一元二次方程有两个解，x1=%f,x2=%f\n&quot;, x1, x2);</span><br><span class="line">	&#125;</span><br><span class="line">	else if (delta == 0)</span><br><span class="line">	&#123;</span><br><span class="line">		//唯一解</span><br><span class="line">		x1 = (-b) / (2 * a);</span><br><span class="line">		x2 = x1;</span><br><span class="line">		printf(&quot;该一元二次方程有一个唯一解，x1=%f,x2=%f\n&quot;, x1, x2);</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		//无解</span><br><span class="line">		printf(&quot;无解\n&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符常量"><a href="#字符常量" class="headerlink" title="字符常量"></a>字符常量</h3><p><img src="/2019/06/28/C语言编程-郝斌/1561785248654.png" alt="1561785248654"></p>
+<h3 id="代码：代码规范-时间功能描述-结果"><a href="#代码：代码规范-时间功能描述-结果" class="headerlink" title="代码：代码规范-时间功能描述-结果"></a>代码：代码规范-时间功能描述-结果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">	2019年6月29日21:17:42</span><br><span class="line">	功能：</span><br><span class="line">	目的：</span><br><span class="line">		测试%x %X %#X的用法</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">	int x = 47; //100是十进制</span><br><span class="line">	int y = 45;</span><br><span class="line"></span><br><span class="line">	printf(&quot;x = %#x, y = %d\n&quot;, x,y);</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">	在VS2015中的输出结果是：</span><br><span class="line">--------------------------------</span><br><span class="line">0X2f</span><br><span class="line">--------------------------------</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<h3 id="运算符及优先级"><a href="#运算符及优先级" class="headerlink" title="运算符及优先级"></a>运算符及优先级</h3><p><img src="/2019/06/28/C语言编程-郝斌/1561817260113.png" alt="1561817260113"></p>
+<h3 id="代码：分数评级"><a href="#代码：分数评级" class="headerlink" title="代码：分数评级"></a>代码：分数评级</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">	float score;</span><br><span class="line"></span><br><span class="line">	printf(&quot;请输入您的考试成绩：&quot;);</span><br><span class="line">	scanf_s(&quot;%f&quot;,&amp;score);</span><br><span class="line"></span><br><span class="line">	if (score &gt; 100)</span><br><span class="line">		printf(&quot;这是做梦！\n&quot;);</span><br><span class="line">	else if (score &gt;= 90)</span><br><span class="line">		printf(&quot;优秀！\n&quot;);</span><br><span class="line">	else if (score &gt;= 80)</span><br><span class="line">		printf(&quot;良好！\n&quot;);</span><br><span class="line">	else if (score &gt;= 70)</span><br><span class="line">		printf(&quot;中等！\n&quot;);</span><br><span class="line">	else if (score &gt;= 60)</span><br><span class="line">		printf(&quot;及格！\n&quot;);</span><br><span class="line">	else if (score &gt;= 0)</span><br><span class="line">		printf(&quot;不及格！继续努力！\n&quot;);</span><br><span class="line">	else</span><br><span class="line">		printf(&quot;输入的分数过低！\n&quot;);</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码：浮点数的存错问题-循环中变量不定义成浮点型"><a href="#代码：浮点数的存错问题-循环中变量不定义成浮点型" class="headerlink" title="代码：浮点数的存错问题-循环中变量不定义成浮点型"></a>代码：浮点数的存错问题-循环中变量不定义成浮点型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">	2019年6月30日10:11:15</span><br><span class="line">	本程序不对，因为循环中的变量不能定义成浮点型；</span><br><span class="line">	示例：</span><br><span class="line">		如下程序过程中的i的小数部分就不都是0.000003，参考最后输出结果；</span><br><span class="line"></span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">	float i;</span><br><span class="line">	float sum;</span><br><span class="line"></span><br><span class="line">	sum = 0;</span><br><span class="line"></span><br><span class="line">	for (i = 1.000003; i &lt;= 100; i = i + 5)</span><br><span class="line">	&#123;</span><br><span class="line">		//sum = sum + 1 / (float)(i);</span><br><span class="line">		//sum = sum + 1 / (float)i;</span><br><span class="line">		sum = sum + 1 / i;</span><br><span class="line">		printf(&quot;浮点数i的值为：%f\n&quot;,i);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	printf(&quot;总和是：%f\n&quot;,sum);</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">输出结果为：</span><br><span class="line">浮点数i的值为：1.000003</span><br><span class="line">浮点数i的值为：6.000003</span><br><span class="line">浮点数i的值为：11.000003</span><br><span class="line">浮点数i的值为：16.000004</span><br><span class="line">浮点数i的值为：21.000004</span><br><span class="line">浮点数i的值为：26.000004</span><br><span class="line">浮点数i的值为：31.000004</span><br><span class="line">浮点数i的值为：36.000004</span><br><span class="line">浮点数i的值为：41.000004</span><br><span class="line">浮点数i的值为：46.000004</span><br><span class="line">浮点数i的值为：51.000004</span><br><span class="line">浮点数i的值为：56.000004</span><br><span class="line">浮点数i的值为：61.000004</span><br><span class="line">浮点数i的值为：66.000000</span><br><span class="line">浮点数i的值为：71.000000</span><br><span class="line">浮点数i的值为：76.000000</span><br><span class="line">浮点数i的值为：81.000000</span><br><span class="line">浮点数i的值为：86.000000</span><br><span class="line">浮点数i的值为：91.000000</span><br><span class="line">浮点数i的值为：96.000000</span><br><span class="line">总和是：1.653950</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<h3 id="自增自减运算符的代码规范"><a href="#自增自减运算符的代码规范" class="headerlink" title="自增自减运算符的代码规范"></a>自增自减运算符的代码规范</h3><p><img src="/2019/06/28/C语言编程-郝斌/1561864185377.png" alt="1561864185377"></p>
+<h3 id="代码：回文数判断"><a href="#代码：回文数判断" class="headerlink" title="代码：回文数判断"></a>代码：回文数判断</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">	2019年6月30日11:51:41</span><br><span class="line">	功能：</span><br><span class="line">		从键盘输入一个数字，如果该数字是回文数，</span><br><span class="line">		则返回yes，否则返回no</span><br><span class="line">		回文数：正着写和倒着写结果一样</span><br><span class="line">				比如：121 12321</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int val;</span><br><span class="line">	int m;</span><br><span class="line">	int sum = 0;</span><br><span class="line"></span><br><span class="line">	printf(&quot;请输入您需要判断的数字：&quot;);</span><br><span class="line">	scanf_s(&quot;%d&quot;,&amp;val);</span><br><span class="line"></span><br><span class="line">	m = val;</span><br><span class="line">	while (m)</span><br><span class="line">	&#123;</span><br><span class="line">		sum = sum * 10 + m % 10;</span><br><span class="line">		m /= 10;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	if (sum == val)</span><br><span class="line">		printf(&quot;Yes!\n&quot;);</span><br><span class="line">	else</span><br><span class="line">		printf(&quot;No!\n&quot;);</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码：菲波那切数列"><a href="#代码：菲波那切数列" class="headerlink" title="代码：菲波那切数列"></a>代码：菲波那切数列</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">	斐波那契数列</span><br><span class="line">	1 2 3 5 8 13 21 34</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">	int f1;</span><br><span class="line">	int f2;</span><br><span class="line">	int f3;</span><br><span class="line">	int len;</span><br><span class="line">	int i;</span><br><span class="line"></span><br><span class="line">	printf(&quot;请输入您想要的斐波那契数列的长度：&quot;);</span><br><span class="line">	scanf_s(&quot;%d&quot;,&amp;len);</span><br><span class="line"></span><br><span class="line">	f1 = 1;</span><br><span class="line">	f2 = 2;</span><br><span class="line"></span><br><span class="line">	if (len == 1)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;%d\n&quot;,f1);</span><br><span class="line">	&#125;</span><br><span class="line">	else if (len == 2)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;%d %d\n&quot;,f1,f2);</span><br><span class="line">	&#125;</span><br><span class="line">	else if (len &gt; 2)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;%d %d&quot;,f1,f2);</span><br><span class="line">		for (i = 3; i &lt;= len; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			f3 = f1 + f2;</span><br><span class="line">			printf(&quot; %d&quot;,f3);</span><br><span class="line">			f1 = f2;</span><br><span class="line">			f2 = f3;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;您输入的长度太短啦！请增加长度哦！\n&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码：do-while-，scanf-char"><a href="#代码：do-while-，scanf-char" class="headerlink" title="代码：do while ，scanf  char"></a>代码：do while ，scanf  char</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;math.h&gt;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">	int a, b, c;</span><br><span class="line">	double delta;</span><br><span class="line">	double x1, x2;</span><br><span class="line">	char ch;</span><br><span class="line"></span><br><span class="line">	do</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;请输入一元二次方程的三个系数：\n&quot;);</span><br><span class="line">		printf(&quot;a = &quot;);</span><br><span class="line">		scanf_s(&quot;%d&quot;,&amp;a);</span><br><span class="line"></span><br><span class="line">		printf(&quot;b = &quot;);</span><br><span class="line">		scanf_s(&quot;%d&quot;,&amp;b);</span><br><span class="line"></span><br><span class="line">		printf(&quot;c = &quot;);</span><br><span class="line">		scanf_s(&quot;%d&quot;,&amp;c);</span><br><span class="line"></span><br><span class="line">		delta = b*b - 4 * a*c;</span><br><span class="line"></span><br><span class="line">		if (delta &gt; 0)</span><br><span class="line">		&#123;</span><br><span class="line">			x1 = (-b + sqrt(delta)) / (2 * a);</span><br><span class="line">			x2 = (-b + sqrt(delta)) / (2 * a);</span><br><span class="line"></span><br><span class="line">			printf(&quot;该一元二次方程有两个解：x1 = %lf, x2 = %lf\n&quot;,x1,x2);</span><br><span class="line">		&#125;</span><br><span class="line">		else if (delta = 0)</span><br><span class="line">		&#123;</span><br><span class="line">			x1 = -b / (2 * a);</span><br><span class="line"></span><br><span class="line">			printf(&quot;该一元二次方程有唯一解：x1 = x2 = %lf\n&quot;,x1);</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			printf(&quot;该一元二次方程无解！\n&quot;);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		printf(&quot;您想继续么（Y/N）：&quot;);</span><br><span class="line">		scanf_s(&quot; %c&quot;,&amp;ch);  //%c前面必须得加一个空格</span><br><span class="line"></span><br><span class="line">	&#125; while (&apos;y&apos; == ch || &apos;Y&apos; == ch);</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码：switch-case-default-break"><a href="#代码：switch-case-default-break" class="headerlink" title="代码：switch case default break"></a>代码：switch case default break</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">	int val;</span><br><span class="line"></span><br><span class="line">	printf(&quot;请输入您要进入的楼层：&quot;);</span><br><span class="line">	scanf_s(&quot;%d&quot;, &amp;val);</span><br><span class="line"></span><br><span class="line">	switch (val)</span><br><span class="line">	&#123;</span><br><span class="line">	case 1:</span><br><span class="line">		printf(&quot;1层开！\n&quot;);</span><br><span class="line">		break;</span><br><span class="line">	case 2:</span><br><span class="line">		printf(&quot;2层开！\n&quot;);</span><br><span class="line">		break;</span><br><span class="line">	case 3:</span><br><span class="line">		printf(&quot;3层开！\n&quot;);</span><br><span class="line">		break;</span><br><span class="line">	default:</span><br><span class="line">		printf(&quot;没有这一层！\n&quot;);</span><br><span class="line">		break;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h4 id="数组初始化及错误写法"><a href="#数组初始化及错误写法" class="headerlink" title="数组初始化及错误写法"></a>数组初始化及错误写法</h4><p><img src="/2019/06/28/C语言编程-郝斌/1561879150195.png" alt="1561879150195"></p>
+<p><img src="/2019/06/28/C语言编程-郝斌/1561879360576.png" alt="1561879360576"></p>
+<h4 id="二维数组定义及输出"><a href="#二维数组定义及输出" class="headerlink" title="二维数组定义及输出"></a>二维数组定义及输出</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">	/*int a[3][4] = &#123;</span><br><span class="line">		&#123;1,2,3,4&#125;,</span><br><span class="line">		&#123;5,6,7,8&#125;,</span><br><span class="line">		&#123;9,10,11,12&#125;,</span><br><span class="line">	&#125;;*/</span><br><span class="line"></span><br><span class="line">	int a[3][4] = &#123; 1,2,3,4,5,6,7,8,9,10,11,12 &#125;;</span><br><span class="line"></span><br><span class="line">	int i, j;</span><br><span class="line"></span><br><span class="line">	for (i=0;i&lt;3;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		for (j = 0; j &lt; 4; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			printf(&quot;%-8d&quot;,a[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">		printf(&quot;\n&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h4><p><img src="/2019/06/28/C语言编程-郝斌/1561880940951.png" alt="1561880940951"></p>
+<h3 id="函数【重点】"><a href="#函数【重点】" class="headerlink" title="函数【重点】"></a>函数【重点】</h3><h4 id="为什么需要函数"><a href="#为什么需要函数" class="headerlink" title="为什么需要函数"></a>为什么需要函数</h4><p><img src="/2019/06/28/C语言编程-郝斌/1561886200772.png" alt="1561886200772"></p>
+<h4 id="return的作用"><a href="#return的作用" class="headerlink" title="return的作用"></a>return的作用</h4><p><img src="/2019/06/28/C语言编程-郝斌/1561887905920.png" alt="1561887905920"></p>
+<h4 id="代码：判断素数函数"><a href="#代码：判断素数函数" class="headerlink" title="代码：判断素数函数"></a>代码：判断素数函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int isPrime(int val);</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">	int val;</span><br><span class="line">	</span><br><span class="line">	do &#123;</span><br><span class="line"></span><br><span class="line">		printf(&quot;请输入一个数：&quot;);</span><br><span class="line">		scanf_s(&quot;%d&quot;, &amp;val);</span><br><span class="line"></span><br><span class="line">		if (isPrime(val))</span><br><span class="line">			printf(&quot;Yes!\n&quot;);</span><br><span class="line">		else</span><br><span class="line">			printf(&quot;No!\n&quot;);</span><br><span class="line">	&#125; while (1);</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int isPrime(int val)</span><br><span class="line">&#123;</span><br><span class="line">	int i;</span><br><span class="line"></span><br><span class="line">	for (i = 2; i &lt; val; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		if (val%i == 0)</span><br><span class="line">			break;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	if (i == val)</span><br><span class="line">		return 1;</span><br><span class="line">	else</span><br><span class="line">		return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="基本类型指针【重点】"><a href="#基本类型指针【重点】" class="headerlink" title="基本类型指针【重点】"></a>基本类型指针【重点】</h3><h4 id="指针的定义"><a href="#指针的定义" class="headerlink" title="指针的定义"></a>指针的定义</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main(void) </span><br><span class="line">&#123;</span><br><span class="line">	int * p;</span><br><span class="line">	int i = 5;</span><br><span class="line">	char ch = &apos;A&apos;;</span><br><span class="line"></span><br><span class="line">	p = &amp;i; //*p是以p的内容为地址的变量；</span><br><span class="line"></span><br><span class="line">	printf(&quot;i = %d, *p = %d\n&quot;,i,*p);</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="被调用函数修改主函数变量值的方法-swap换值"><a href="#被调用函数修改主函数变量值的方法-swap换值" class="headerlink" title="被调用函数修改主函数变量值的方法-swap换值"></a>被调用函数修改主函数变量值的方法-swap换值</h4><ol>
+<li><p>实参必须为该普通变量的地址；</p>
+</li>
+<li><p>形参必须为指针变量；</p>
+</li>
+<li><p>在被调函数中通过</p>
+<p>*形参名 = ……</p>
+<p>的方式就可以主调函数相关变量的值</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">void swap(int * p, int * q)</span><br><span class="line">&#123;</span><br><span class="line">	int t;</span><br><span class="line">	</span><br><span class="line">	t = * p;</span><br><span class="line">	* p = * q;</span><br><span class="line">	* q = t;</span><br><span class="line"></span><br><span class="line">	return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">	int a = 3;</span><br><span class="line">	int b = 5;</span><br><span class="line"></span><br><span class="line">	swap(&amp;a,&amp;b);</span><br><span class="line">	printf(&quot;a = %d, b = %d\n&quot;,a,b);</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="指针使函数返回一个以上的值"><a href="#指针使函数返回一个以上的值" class="headerlink" title="指针使函数返回一个以上的值"></a>指针使函数返回一个以上的值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">void f(int *p, int *q)</span><br><span class="line">&#123;</span><br><span class="line">	*p = 8;</span><br><span class="line">	*q = 9;</span><br><span class="line"></span><br><span class="line">	return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">	int a = 3, b = 5;</span><br><span class="line"></span><br><span class="line">	f(&amp;a,&amp;b);</span><br><span class="line"></span><br><span class="line">	printf(&quot;a = %d, b = %d\n&quot;,a,b);</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="指针和数组"><a href="#指针和数组" class="headerlink" title="指针和数组"></a>指针和数组</h3><h4 id="指针和一维数组"><a href="#指针和一维数组" class="headerlink" title="指针和一维数组"></a>指针和一维数组</h4><h5 id="一维数组名"><a href="#一维数组名" class="headerlink" title="一维数组名"></a>一维数组名</h5><p>一维数组名是个指针常量；</p>
+<p>它存放的是一维数组第一个元素的地址；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">	int a[5];</span><br><span class="line">	int b[3][4];</span><br><span class="line"></span><br><span class="line">	a[3] = 5;</span><br><span class="line"></span><br><span class="line">	printf(&quot;%#X\n&quot;,&amp;a[0]);</span><br><span class="line">	printf(&quot;%#X\n&quot;,a);</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="下标和指针的关系"><a href="#下标和指针的关系" class="headerlink" title="下标和指针的关系"></a>下标和指针的关系</h5><p>如果p是个指针变量，则p[i]永远等价于*(p+i)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">void f(int * a, int len)</span><br><span class="line">&#123;</span><br><span class="line">	int i;</span><br><span class="line"></span><br><span class="line">	for (i = 0; i &lt; len; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;%d %d %#X\n&quot;,*(a+i),a[i], a+i);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	a[3] = 88;</span><br><span class="line"></span><br><span class="line">	return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">	int a[5] = &#123;1,2,3,4,5&#125;;</span><br><span class="line">	int b[6] = &#123;-1,-2,-3,-4,-5,-6&#125;;</span><br><span class="line">	int c[100] = &#123;1,99,22,33&#125;;</span><br><span class="line"></span><br><span class="line">	f(b,6);</span><br><span class="line"></span><br><span class="line">	printf(&quot;%d\n&quot;,b[3]);</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">输出结果为：</span><br><span class="line">-------------------------</span><br><span class="line">-1 -1 0X7FF948</span><br><span class="line">-2 -2 0X7FF94C</span><br><span class="line">-3 -3 0X7FF950</span><br><span class="line">-4 -4 0X7FF954</span><br><span class="line">-5 -5 0X7FF958</span><br><span class="line">-6 -6 0X7FF95C</span><br><span class="line">88</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<h5 id="指针变量的运算"><a href="#指针变量的运算" class="headerlink" title="指针变量的运算"></a>指针变量的运算</h5><p>指针变量不能相加 不能相乘 也不能相除</p>
+<p>如果两个指针变量指向的是同一块连续空间中的不同存储单元，则这两个指针变量才可以相减</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">	int i = 5;</span><br><span class="line">	int j = 10;</span><br><span class="line">	int *p = &amp;i;</span><br><span class="line">	int *q = &amp;j;</span><br><span class="line">	int a[5];</span><br><span class="line"></span><br><span class="line">	p = &amp;a[1];</span><br><span class="line">	q = &amp;a[4];</span><br><span class="line"></span><br><span class="line">	printf(&quot;%d\n&quot;,q-p);</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一个指针变量到底占几个字符【非重点】</p>
+<p>预备知识：</p>
+<p>sizeof（数据类型）</p>
+<p>功能：返回值就是该数据类型所占的字节数</p>
+<p>例子：sizeof(int) = 4  sizeof(char) = 1 sizeof(double) = 8</p>
+<p>​            sizeof(变量名)</p>
+<p>假设p指向char类型变量（1个字节）</p>
+<p>假设q指向int类型变量（4个字节）</p>
+<p>假设r指向double类型变量（8个字节）</p>
+<p>p q r本身所占的字符是否一样</p>
+<p>总结：</p>
+<p>一个指针变量，无论它指向的变量占几个字节，该指针变量本身只占4个字节；</p>
+<p>一个变量的地址使用该变量首字节的地址来表示；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">	char ch = &apos;A&apos;;</span><br><span class="line">	int i = 99;</span><br><span class="line">	double x = 66.6;</span><br><span class="line"></span><br><span class="line">	char * p = &amp;ch;</span><br><span class="line">	int * q = &amp;ch;</span><br><span class="line">	double * r = &amp;x;</span><br><span class="line"></span><br><span class="line">	printf(&quot;%d %d %d\n&quot;,sizeof(p),sizeof(q),sizeof(r));</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">输出结果为：</span><br><span class="line">-------------------------------</span><br><span class="line">4 4 4</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<h5 id="多级指针"><a href="#多级指针" class="headerlink" title="多级指针"></a>多级指针</h5><h4 id="指针和二维数组"><a href="#指针和二维数组" class="headerlink" title="指针和二维数组"></a>指针和二维数组</h4><h2 id="专题"><a href="#专题" class="headerlink" title="专题"></a>专题</h2><h3 id="动态内存分配【重点难点】"><a href="#动态内存分配【重点难点】" class="headerlink" title="动态内存分配【重点难点】"></a>动态内存分配【重点难点】</h3><h4 id="传统数组的缺点"><a href="#传统数组的缺点" class="headerlink" title="传统数组的缺点"></a>传统数组的缺点</h4><ol>
+<li><p>数组的长度必须事先制定，且只能是常整数，不能是变量</p>
+<p>​    例子：</p>
+<p>​                int a[5]; // OK</p>
+<p>​                int len = 5; int a[len]; //error</p>
+<ol start="2">
+<li>传统形式定义的数组，该数组的内存程序员无法手动释放</li>
+</ol>
+<p>数组一旦定义，系统为该数组分配的存储空间就会一直存在，除非数组所在的函数运行结束；</p>
+<p>在一个函数运行期间，系统为该函数中数组所分配的空间会一直存在，直到该函数运行完毕时，数组的空间才会被系统释放</p>
+<ol start="3">
+<li>数组的长度一旦定义，其长度就不能再更改；</li>
+</ol>
+<p>数组的长度不能再函数运行的过程中动态的扩充和缩小；</p>
+<ol start="4">
+<li>A函数定义的数组，在A函数运行期间可以被其它函数使用，但A函数运行完毕之后，A函数中的数组将无法再被其它函数使用；</li>
+</ol>
+<p>传统方式定义的数组不能跨函数使用；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">void g(int * pArr, int len)</span><br><span class="line">&#123;</span><br><span class="line">	pArr[2] = 88;</span><br><span class="line"></span><br><span class="line">	return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void f(void)</span><br><span class="line">&#123;</span><br><span class="line">	int a[5] = &#123;1,2,3,4,5&#125;; //20个字节的存储空间程序员无法手动编程释放它，</span><br><span class="line">							//它只能在本函数运行完毕时由系统自动释放</span><br><span class="line">	g(a, 5);</span><br><span class="line">	printf(&quot;%d\n&quot;,a[2]);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">	f();</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="为什么需要动态内存分配"><a href="#为什么需要动态内存分配" class="headerlink" title="为什么需要动态内存分配"></a>为什么需要动态内存分配</h4><pre><code>1. 动态数组很好的解决了传统数组的这4个缺陷
+ 2. 传统数组也叫静态数组
+</code></pre><p>动态内存分配举例_动态数组的构造</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">	2019年7月2日22:29:35</span><br><span class="line">	malloc 是 memory（内存） allocate（分配）的缩写</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;malloc.h&gt;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">	int i = 5;	//分配了4个字节 静态分配</span><br><span class="line">	int * p = (int *)malloc(4);</span><br><span class="line">		/*</span><br><span class="line">			1. 要使用malloc函数，必须添加malloc.h这个头文件</span><br><span class="line">			2. malloc函数只有一个形参，并且是整数</span><br><span class="line">			3. 4表示请求系统为本程序分配4个字节</span><br><span class="line">			4. malloc函数只能返回一个字节的地址</span><br><span class="line">			5. 12行分配了8个字节，p变量占4个字节，p所指向的内存也占4个字节</span><br><span class="line">			6. p本身所占的内存是静态分配的，p所指向的内存是动态分配的</span><br><span class="line">		*/</span><br><span class="line">	*p = 5; //*p 代表的就是一个int变量，只不过*p这个整型变量的内存分配方式和11行的i变量分配方式不同</span><br><span class="line">	free(p);// free(P)表示把所指向的内存给释放掉，p本身的内存是静态的，不能由程序员动手手动释放，</span><br><span class="line">	printf(&quot;同志们好！\n&quot;);</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;malloc.h&gt;</span><br><span class="line"></span><br><span class="line">void f(int * q)</span><br><span class="line">&#123;</span><br><span class="line">	*q = 200;</span><br><span class="line">	free(q);</span><br><span class="line">	return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">	int * p = (int *)malloc(sizeof(int));//sizeof(int)返回值是int所占的字节数</span><br><span class="line">	*p = 10;</span><br><span class="line"></span><br><span class="line">	printf(&quot;%d\n&quot;, *p);</span><br><span class="line">	f(p);</span><br><span class="line">	printf(&quot;%d\n&quot;, *p);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">free(q)注释掉，输出结果为：</span><br><span class="line">-----------------------------</span><br><span class="line">10</span><br><span class="line">200</span><br><span class="line">-----------------------------</span><br><span class="line">free(q)注释掉，输出结果为：</span><br><span class="line">-----------------------------</span><br><span class="line">10</span><br><span class="line">-572662307</span><br><span class="line">-----------------------------</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<h5 id="动态一维数组"><a href="#动态一维数组" class="headerlink" title="动态一维数组"></a>动态一维数组</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">	int a[5]; //如果int占用4个字节的话，则本数组工包含有20个字节，每4个字节当做一个int变量来使用</span><br><span class="line">	int len;</span><br><span class="line">	int * pArr;</span><br><span class="line"></span><br><span class="line">	printf(&quot;请输入您要存放的元素的个数：&quot;);</span><br><span class="line">	scanf_s(&quot;%d&quot;,&amp;len);</span><br><span class="line">	pArr = (int *)malloc(4 * len);</span><br><span class="line"></span><br><span class="line">	printf(&quot;%#X %d\n&quot;,pArr,sizeof(pArr));</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>静态内存和动态内存的比较</p>
+<pre><code>1. 静态内存是由系统自动分配，由系统自动释放
+ 2. 静态内存是在栈分配的
+ 3. 动态内存是由程序员手动分配，手动释放
+ 4. 动态内存是在堆分配的
+</code></pre><p>跨函数使用内存的问题</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C</a>
+          
+            <a href="/tags/编程/" rel="tag"><i class="fa fa-tag"></i> 编程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/13/连续傅里叶变换和离散傅里叶变换/" rel="next" title="连续傅里叶变换和离散傅里叶变换">
+                <i class="fa fa-chevron-left"></i> 连续傅里叶变换和离散傅里叶变换
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt>
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/myourdream/myourdream.github.io" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:yourname@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/yourname" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/yourname" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mybookmark.cn/#/bookmarks" title="网络书签" target="_blank">网络书签</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://note.youdao.com/web/#/file/recent" title="有道云笔记" target="_blank">有道云笔记</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://pan.baidu.com/disk/home" title="百度云盘" target="_blank">百度云盘</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/myourdream2" title="CSDN博客" target="_blank">CSDN博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.cnblogs.com/myourdream/" title="博客园" target="_blank">博客园</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#知识点"><span class="nav-text">知识点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码：解二元一次方程组"><span class="nav-text">代码：解二元一次方程组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符常量"><span class="nav-text">字符常量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码：代码规范-时间功能描述-结果"><span class="nav-text">代码：代码规范-时间功能描述-结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运算符及优先级"><span class="nav-text">运算符及优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码：分数评级"><span class="nav-text">代码：分数评级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码：浮点数的存错问题-循环中变量不定义成浮点型"><span class="nav-text">代码：浮点数的存错问题-循环中变量不定义成浮点型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自增自减运算符的代码规范"><span class="nav-text">自增自减运算符的代码规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码：回文数判断"><span class="nav-text">代码：回文数判断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码：菲波那切数列"><span class="nav-text">代码：菲波那切数列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码：do-while-，scanf-char"><span class="nav-text">代码：do while ，scanf  char</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码：switch-case-default-break"><span class="nav-text">代码：switch case default break</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数组初始化及错误写法"><span class="nav-text">数组初始化及错误写法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二维数组定义及输出"><span class="nav-text">二维数组定义及输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多维数组"><span class="nav-text">多维数组</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数【重点】"><span class="nav-text">函数【重点】</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么需要函数"><span class="nav-text">为什么需要函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#return的作用"><span class="nav-text">return的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码：判断素数函数"><span class="nav-text">代码：判断素数函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型指针【重点】"><span class="nav-text">基本类型指针【重点】</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#指针的定义"><span class="nav-text">指针的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#被调用函数修改主函数变量值的方法-swap换值"><span class="nav-text">被调用函数修改主函数变量值的方法-swap换值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指针使函数返回一个以上的值"><span class="nav-text">指针使函数返回一个以上的值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指针和数组"><span class="nav-text">指针和数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#指针和一维数组"><span class="nav-text">指针和一维数组</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#一维数组名"><span class="nav-text">一维数组名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下标和指针的关系"><span class="nav-text">下标和指针的关系</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#指针变量的运算"><span class="nav-text">指针变量的运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多级指针"><span class="nav-text">多级指针</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指针和二维数组"><span class="nav-text">指针和二维数组</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#专题"><span class="nav-text">专题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态内存分配【重点难点】"><span class="nav-text">动态内存分配【重点难点】</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#传统数组的缺点"><span class="nav-text">传统数组的缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么需要动态内存分配"><span class="nav-text">为什么需要动态内存分配</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#动态一维数组"><span class="nav-text">动态一维数组</span></a></li></ol></li></ol></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("S6gJowjn44QcMyOc99n6lo2g-gzGzoHsz", "Ur3RRX915yjUmFih0cwdvQEM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
